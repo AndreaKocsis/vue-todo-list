@@ -8,5 +8,4 @@ import Navigation from './components/Navigation.vue'
   </div>
 </template>
 
-<style>
-</style>
+
