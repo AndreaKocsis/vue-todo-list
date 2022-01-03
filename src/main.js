@@ -1,19 +1,19 @@
 import { createApp } from 'vue'
-import { createRouter, createrWebHistory } from 'vue-router'
+import { createRouter, createWebHistory } from 'vue-router'
 import App from './App.vue'
 
-import AllTasks from './components/pages/AllTasks.vue'
-import CompletedTasks from './components/pages/CompletedTasks.vue'
-import UncompletedTasks from './components/pages/UncompletedTasks.vue'
+const AllTasks = () => import('./components/pages/AllTasks.vue')
+const CompletedTasks = () => import('./components/pages/CompletedTasks.vue')
+const UncompletedTasks = () => import('./components/pages/UncompletedTasks.vue')
 
 const router = createRouter({
-    history: createrWebHistory(),
+    history: createWebHistory(),
     routes:[
-        {path: '/', name: 'All Tasks', component: 'AllTasks'},
-        {path: '/completed-tasks', name: 'Completed Tasks', component: 'CompletedTasks'},
-        {path: '/uncompleted-tasks', name: 'Uncompleted Tasks', component: 'UncompletedTasks'},
+        {path: '/', name: 'All Tasks', component: AllTasks},
+        {path: '/completed-tasks', name: 'Completed Tasks', component: CompletedTasks},
+        {path: '/uncompleted-tasks', name: 'Uncompleted Tasks', component: UncompletedTasks}
     ]
 })
 
-
 createApp(App).use(router).mount('#app');
+export default router;
